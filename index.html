@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,minimum-scale=1"
+    />
+    <title>WeatherApp</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>WeatherApp</h1>
+      <p>the weather app you need</p>
+      <p>&#8451; &#8457;</p>
+      <div class="header-search">
+        <form action="" id="search">
+          <input type="text" placeholder="Enter City Name" />
+        </form>
+      </div>
+    </header>
+    <main>
+      <div class="main-container">
+        <h2></h2>
+        <ul>
+          <li>
+            <p>Current Temperature: <span id="current"></span></p>
+          </li>
+          <li>
+            <p>Min Temperature: <span id="min"></span></p>
+          </li>
+          <li>
+            <p>Max Temperature: <span id="max"></span></p>
+          </li>
+          <li>
+            <p>Atmospheric pressure: <span id="pressure"></span></p>
+          </li>
+          <li>
+            <p>Humidity: <span id="humidity"></span></p>
+          </li>
+          <li>
+            <p>Wind: <span id="wind"></span></p>
+          </li>
+        </ul>
+        <button>Current</button>
+        <button>Forecast</button>
+      </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
