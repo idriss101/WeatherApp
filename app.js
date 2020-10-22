@@ -7,6 +7,8 @@ const maxTemp = document.querySelector("#max");
 const atmosPressure = document.querySelector("#pressure");
 const humidity = document.querySelector("#humidity");
 const wind = document.querySelector("#wind");
+const weatherIcon = document.querySelector("#weather-icon");
+const autocompleteItem = document.querySelector("#autocomplete-item");
 
 const celcius = String.fromCharCode(8451);
 
@@ -28,6 +30,7 @@ search.addEventListener("submit", (e) => {
       atmosPressure.textContent = `${res.data.main.pressure} hPa`;
       humidity.textContent = `${res.data.main.humidity}%`;
       wind.textContent = `${res.data.wind.speed} km/h, SW`;
+      weatherIcon.src = `./icons/${res.data.weather[0].icon}.png`;
       console.log(res.data);
     });
 });

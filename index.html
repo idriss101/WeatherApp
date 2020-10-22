@@ -6,6 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0,minimum-scale=1"
     />
+    <link rel="stylesheet" href="./styles/styles.css" />
     <title>WeatherApp</title>
   </head>
   <body>
@@ -22,6 +23,7 @@
     <main>
       <div class="main-container">
         <h2></h2>
+        <img src="" alt="" id="weather-icon" />
         <ul>
           <li>
             <p>Current Temperature: <span id="current"></span></p>
@@ -45,9 +47,12 @@
         <button>Current</button>
         <button>Forecast</button>
       </div>
+      <input id="autoComplete" tabindex="1" />
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script src="./autocomplete.js"></script>
     <script src="./app.js"></script>
   </body>
 </html>
