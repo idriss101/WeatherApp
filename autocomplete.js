@@ -1,8 +1,10 @@
+// let APIKEY = "fcf9827d9e09bf4ed16d689aab56d4dd";
+
 // autoComplete.js on typing event emitter
-document
+const x = document
   .querySelector("#autoComplete")
   .addEventListener("autoComplete", (event) => {
-    console.log(event.target);
+    // console.log(event.target);
   });
 // The autoComplete.js Engine instance creator
 const autoCompletejs = new autoComplete({
@@ -50,16 +52,27 @@ const autoCompletejs = new autoComplete({
     document.querySelector("#autoComplete_list").appendChild(result);
   },
   onSelection: (feedback) => {
-    const selection = feedback.selection.value.food;
-    // Render selected choice to selection div
-    document.querySelector(".selection").innerHTML = selection;
-    // Clear Input
-    document.querySelector("#autoComplete").value = "";
-    // Change placeholder with the selected value
-    document
-      .querySelector("#autoComplete")
-      .setAttribute("placeholder", selection);
-    // Concole log autoComplete data feedback
+    const selection = feedback.selection.value;
+    document.querySelector("#autoComplete").value = selection;
+    const city = selection;
+    let URL = `api.openweathermap.org/data/2.5/weather?q=${selection}&appid=${APIKEY}`;
+
+    axios
+      .get(
+        `http://api.openweathermap.org/data/2.5/weather?q=${selection}&units=metric&appid=${APIKEY}`
+      )
+      .then((res) => {
+        cityName.textContent = res.data.name;
+        currentTemp.textContent = `${res.data.main.temp} ${celcius} `;
+        minTemp.textContent = `${res.data.main.temp_min} ${celcius}`;
+        maxTemp.textContent = `${res.data.main.temp_max} ${celcius}`;
+        atmosPressure.textContent = `${res.data.main.pressure} hPa`;
+        humidity.textContent = `${res.data.main.humidity}%`;
+        wind.textContent = `${res.data.wind.speed} km/h, SW`;
+        weatherIcon.src = `./icons/${res.data.weather[0].icon}.png`;
+        console.log(res.data);
+      });
+
     console.log(feedback);
   },
 });

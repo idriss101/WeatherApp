@@ -15,22 +15,22 @@ const celcius = String.fromCharCode(8451);
 search.addEventListener("submit", (e) => {
   e.preventDefault();
   e.stopImmediatePropagation();
-  const city = e.target[0].value;
-  let URL = `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`;
+  //   const city = e.target[0].value;
+  //   let URL = `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`;
 
-  axios
-    .get(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKEY}`
-    )
-    .then((res) => {
-      cityName.textContent = res.data.name;
-      currentTemp.textContent = `${res.data.main.temp} ${celcius} `;
-      minTemp.textContent = `${res.data.main.temp_min} ${celcius}`;
-      maxTemp.textContent = `${res.data.main.temp_max} ${celcius}`;
-      atmosPressure.textContent = `${res.data.main.pressure} hPa`;
-      humidity.textContent = `${res.data.main.humidity}%`;
-      wind.textContent = `${res.data.wind.speed} km/h, SW`;
-      weatherIcon.src = `./icons/${res.data.weather[0].icon}.png`;
-      console.log(res.data);
-    });
+  //   axios
+  //     .get(
+  //       `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKEY}`
+  //     )
+  //     .then((res) => {
+  //       cityName.textContent = res.data.name;
+  //       currentTemp.textContent = `${res.data.main.temp} ${celcius} `;
+  //       minTemp.textContent = `${res.data.main.temp_min} ${celcius}`;
+  //       maxTemp.textContent = `${res.data.main.temp_max} ${celcius}`;
+  //       atmosPressure.textContent = `${res.data.main.pressure} hPa`;
+  //       humidity.textContent = `${res.data.main.humidity}%`;
+  //       wind.textContent = `${res.data.wind.speed} km/h, SW`;
+  //       weatherIcon.src = `./icons/${res.data.weather[0].icon}.png`;
+  //       console.log(res.data);
+  //     });
 });
