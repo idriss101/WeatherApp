@@ -21,7 +21,7 @@ const autoCompletejs = new autoComplete({
     if (a.match > b.match) return 1;
     return 0;
   },
-  placeHolder: "Food & Drinks",
+  placeHolder: "Enter a City",
   selector: "#autoComplete",
   threshold: 0,
   debounce: 0,
