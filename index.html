@@ -17,13 +17,16 @@
         <!-- <p>&#8451; &#8457;</p> -->
         <div class="header-search">
           <form action="" id="search" autocomplete="chrome-off">
-            <input
-              type="search"
-              placeholder="Enter City Name"
-              id="autoComplete"
-              tabindex="1"
-              autocomplete="chrome-off"
-            />
+            <div class="search-container">
+              <input
+                type="search"
+                placeholder="Enter City Name"
+                id="autoComplete"
+                tabindex="1"
+                autocomplete="chrome-off"
+              />
+              <div id="search-items"></div>
+            </div>
           </form>
         </div>
       </header>
@@ -31,28 +34,34 @@
         <div class="main-container">
           <h2></h2>
           <img src="" alt="" id="weather-icon" />
+          <h3></h3>
           <ul>
             <li>
-              <p>Current Temperature: <span id="current"></span></p>
+              <p>
+                Current Temperature: <span id="current" class="data"></span>
+              </p>
             </li>
             <li>
-              <p>Min Temperature: <span id="min"></span></p>
+              <p>Min Temperature: <span id="min" class="data"></span></p>
             </li>
             <li>
-              <p>Max Temperature: <span id="max"></span></p>
+              <p>Max Temperature: <span id="max" class="data"></span></p>
             </li>
             <li>
-              <p>Atmospheric pressure: <span id="pressure"></span></p>
+              <p>
+                Atmospheric pressure: <span id="pressure" class="data"></span>
+              </p>
             </li>
             <li>
-              <p>Humidity: <span id="humidity"></span></p>
+              <p>Humidity: <span id="humidity" class="data"></span></p>
             </li>
             <li>
-              <p>Wind: <span id="wind"></span></p>
+              <p>Wind: <span id="wind" class="data"></span></p>
             </li>
           </ul>
-          <button>Current</button>
-          <button>Forecast</button>
+          <div class="button-wrap">
+            <button id="current-btn">Current</button> <button>Forecast</button>
+          </div>
         </div>
       </main>
     </div>

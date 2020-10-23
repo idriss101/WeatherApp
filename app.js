@@ -9,8 +9,26 @@ const humidity = document.querySelector("#humidity");
 const wind = document.querySelector("#wind");
 const weatherIcon = document.querySelector("#weather-icon");
 const autocompleteItem = document.querySelector("#autocomplete-item");
+const weatherDescription = document.querySelector("h3");
 
 const celcius = String.fromCharCode(8451);
+
+axios({
+  method: "GET",
+  url: "https://wft-geo-db.p.rapidapi.com/v1/geo/cities",
+  headers: {
+    "content-type": "application/octet-stream",
+    "x-rapidapi-host": "wft-geo-db.p.rapidapi.com",
+    "x-rapidapi-key": "e46aff112dmshaf373c70f25a965p1c8fbajsn0b3a07e84550",
+    useQueryString: true,
+  },
+})
+  .then((response) => {
+    console.log(response);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
 search.addEventListener("submit", (e) => {
   e.preventDefault();

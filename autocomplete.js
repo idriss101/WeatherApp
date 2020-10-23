@@ -33,8 +33,8 @@ const autoCompletejs = new autoComplete({
     container: (source) => {
       source.setAttribute("id", "autoComplete_list");
     },
-    destination: document.querySelector("#autoComplete"),
-    position: "afterend",
+    destination: document.querySelector("#search-items"),
+    position: "afterbegin",
     element: "ul",
   },
   resultItem: {
@@ -70,6 +70,7 @@ const autoCompletejs = new autoComplete({
         humidity.textContent = `${res.data.main.humidity}%`;
         wind.textContent = `${res.data.wind.speed} km/h, SW`;
         weatherIcon.src = `./icons/${res.data.weather[0].icon}.png`;
+        weatherDescription.textContent = res.data.weather[0].main;
         console.log(res.data);
       });
 
