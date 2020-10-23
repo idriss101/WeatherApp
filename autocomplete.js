@@ -1,4 +1,64 @@
-// let APIKEY = "fcf9827d9e09bf4ed16d689aab56d4dd";
+let cities = [
+  "Montreal",
+  "London",
+  "New York",
+  "Chicago",
+  "Tokyo",
+  "Delhi",
+  "Shanghai",
+  "São Paulo",
+  "Mexico City",
+  "Cairo",
+  "Mumbai",
+  "Beijing",
+  "Dhaka",
+  "Osaka",
+  "Karachi",
+  "Buenos Aires",
+  "Chongqing",
+  "Istanbul",
+  "Kolkata",
+  "Manila",
+  "Lagos",
+  "Rio de Janeiro",
+  "Tianjin",
+  "Kinshasa",
+  "Guangzhou",
+  "Los Angeles",
+  "Moscow",
+  "Shenzhen",
+  "Lahore",
+  "Bangalore",
+  "Paris",
+  "Bogotá",
+  "Jakarta",
+  "Chennai",
+  "Lima",
+  "Bangkok",
+  "Seoul",
+  "Nagoya",
+  "Hyderabad",
+  "Tehran",
+  "Chicago",
+  "Kuala Lumpur",
+  "Hong Kong",
+  "Hangzhou",
+  "Madrid",
+  "Suzhou",
+  "Pune",
+  "Harbin",
+  "Houston",
+  "Dallas",
+  "Toronto",
+  "Miami",
+  "Singapore",
+  "Philadelphia",
+  "Atlanta",
+  "Barcelona",
+  "Johannesburg",
+  "Saint Petersburg",
+  "Washington, D.C.",
+];
 
 // autoComplete.js on typing event emitter
 const x = document
@@ -11,7 +71,7 @@ const autoCompletejs = new autoComplete({
   data: {
     src: () => {
       // Loading placeholder text
-      const data = ["Montreal", "London", "New York", "Chicago"];
+      const data = cities;
       return data;
     },
     cache: false,
@@ -48,7 +108,7 @@ const autoCompletejs = new autoComplete({
     const result = document.createElement("li");
     result.setAttribute("class", "no_result");
     result.setAttribute("tabindex", "1");
-    result.innerHTML = "No Results";
+    result.innerHTML = "Search anyway!";
     document.querySelector("#autoComplete_list").appendChild(result);
   },
   onSelection: (feedback) => {
