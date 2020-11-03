@@ -39,6 +39,12 @@ button:focus {
   -moz-box-shadow: -1px 12px 11px 6px rgba(0, 0, 0, 0.19);
   box-shadow: -1px 12px 11px 6px rgba(0, 0, 0, 0.19);
 }
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+    margin-top: 0;
+  }
+}
 
 .header {
   text-align: center;
