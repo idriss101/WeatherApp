@@ -15,22 +15,27 @@ const currentContent = document.querySelector(".main-content-current");
 
 const celcius = String.fromCharCode(8451);
 
-axios({
-  method: "GET",
-  url: "https://wft-geo-db.p.rapidapi.com/v1/geo/cities",
-  headers: {
-    "content-type": "application/octet-stream",
-    "x-rapidapi-host": "wft-geo-db.p.rapidapi.com",
-    "x-rapidapi-key": "e46aff112dmshaf373c70f25a965p1c8fbajsn0b3a07e84550",
-    useQueryString: true,
-  },
-})
-  .then((response) => {
-    console.log(response);
-  })
-  .catch((error) => {
-    console.log(error);
+function getLocation() {
+  navigator.geolocation.getCurrentPosition((position) => {
+    console.log(position);
+    axios
+      .get(
+        `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${APIKEY}`
+      )
+      .then((res) => {
+        cityName.textContent = res.data.name;
+        currentTemp.textContent = `${res.data.main.temp} ${celcius} `;
+        minTemp.textContent = `${res.data.main.temp_min} ${celcius}`;
+        maxTemp.textContent = `${res.data.main.temp_max} ${celcius}`;
+        atmosPressure.textContent = `${res.data.main.pressure} hPa`;
+        humidity.textContent = `${res.data.main.humidity}%`;
+        wind.textContent = `${res.data.wind.speed} km/h, SW`;
+        weatherIcon.src = `./icons/${res.data.weather[0].icon}.png`;
+      });
   });
+}
+
+getLocation();
 
 search.addEventListener("submit", (e) => {
   e.preventDefault();

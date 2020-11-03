@@ -131,9 +131,9 @@ const autoCompletejs = new autoComplete({
         wind.textContent = `${res.data.wind.speed} km/h, SW`;
         weatherIcon.src = `./icons/${res.data.weather[0].icon}.png`;
         weatherDescription.textContent = res.data.weather[0].main;
-        console.log(res.data);
+        // console.log(res.data);
       });
 
-    console.log(feedback);
+    // console.log(feedback);
   },
 });

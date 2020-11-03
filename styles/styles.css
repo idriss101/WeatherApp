@@ -98,9 +98,13 @@ button:focus {
 }
 
 .main-content-current {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.main-content-forecast {
+  display: block;
 }
 
 .data {
