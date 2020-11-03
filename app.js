@@ -16,6 +16,17 @@ const currentContent = document.querySelector(".main-content-current");
 const celcius = String.fromCharCode(8451);
 
 function getLocation() {
+  let loader = ` <div class="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div> `;
+  currentContent.innerHTML = loader;
   navigator.geolocation.getCurrentPosition((position) => {
     console.log(position);
     axios
@@ -23,14 +34,40 @@ function getLocation() {
         `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${APIKEY}`
       )
       .then((res) => {
-        cityName.textContent = res.data.name;
-        currentTemp.textContent = `${res.data.main.temp} ${celcius} `;
-        minTemp.textContent = `${res.data.main.temp_min} ${celcius}`;
-        maxTemp.textContent = `${res.data.main.temp_max} ${celcius}`;
-        atmosPressure.textContent = `${res.data.main.pressure} hPa`;
-        humidity.textContent = `${res.data.main.humidity}%`;
-        wind.textContent = `${res.data.wind.speed} km/h, SW`;
-        weatherIcon.src = `./icons/${res.data.weather[0].icon}.png`;
+        currentContent.innerHTML = `<h2>${res.data.name}</h2>
+            <img src="${`./icons/${res.data.weather[0].icon}.png`}" alt="" id="weather-icon" />
+            <h3>${res.data.weather[0].main}</h3>
+            <ul>
+              <li>
+                <p>
+                  Current Temperature: <span id="current" class="data">${`${Math.round(
+                    res.data.main.temp
+                  )} ${celcius} `}</span>
+                </p>
+              </li>
+              <li>
+                <p>Min Temperature: <span id="min" class="data">${`${Math.round(
+                  res.data.main.temp_min
+                )} ${celcius}`}</span></p>
+              </li>
+              <li>
+                <p>Max Temperature: <span id="max" class="data">${`${Math.round(
+                  res.data.main.temp_max
+                )} ${celcius}`}</span></p>
+              </li>
+              <li>
+                <p>
+                  Atmospheric pressure: <span id="pressure" class="data">${`${res.data.main.pressure} hPa`}</span>
+                </p>
+              </li>
+              <li>
+                <p>Humidity: <span id="humidity" class="data">${`${res.data.main.humidity}%`}</span></p>
+              </li>
+              <li>
+                <p>Wind: <span id="wind" class="data">${`${res.data.wind.speed} km/h, SW`}</span></p>
+              </li>
+            </ul>
+        `;
       });
   });
 }
@@ -48,19 +85,39 @@ search.addEventListener("submit", (e) => {
       `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKEY}`
     )
     .then((res) => {
-      cityName.textContent = res.data.name;
-      currentTemp.textContent = `${res.data.main.temp} ${celcius} `;
-      minTemp.textContent = `${res.data.main.temp_min} ${celcius}`;
-      maxTemp.textContent = `${res.data.main.temp_max} ${celcius}`;
-      atmosPressure.textContent = `${res.data.main.pressure} hPa`;
-      humidity.textContent = `${res.data.main.humidity}%`;
-      wind.textContent = `${res.data.wind.speed} km/h, SW`;
-      weatherIcon.src = `./icons/${res.data.weather[0].icon}.png`;
-      console.log(res.data);
+      currentContent.innerHTML = `<h2>${res.data.name}</h2>
+            <img src="${`./icons/${res.data.weather[0].icon}.png`}" alt="" id="weather-icon" />
+            <h3>${res.data.weather[0].main}</h3>
+            <ul>
+              <li>
+                <p>
+                  Current Temperature: <span id="current" class="data">${`${Math.round(
+                    res.data.main.temp
+                  )} ${celcius} `}</span>
+                </p>
+              </li>
+              <li>
+                <p>Min Temperature: <span id="min" class="data">${`${Math.round(
+                  res.data.main.temp_min
+                )} ${celcius}`}</span></p>
+              </li>
+              <li>
+                <p>Max Temperature: <span id="max" class="data">${`${Math.round(
+                  res.data.main.temp_max
+                )} ${celcius}`}</span></p>
+              </li>
+              <li>
+                <p>
+                  Atmospheric pressure: <span id="pressure" class="data">${`${res.data.main.pressure} hPa`}</span>
+                </p>
+              </li>
+              <li>
+                <p>Humidity: <span id="humidity" class="data">${`${res.data.main.humidity}%`}</span></p>
+              </li>
+              <li>
+                <p>Wind: <span id="wind" class="data">${`${res.data.wind.speed} km/h, SW`}</span></p>
+              </li>
+            </ul>
+        `;
     });
-});
-
-forecastBtn.addEventListener("click", () => {
-  currentContent.style.display = "none";
-  forecastBtn.classList.add("selected");
 });
