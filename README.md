@@ -6,10 +6,7 @@ Weather widget to look up the weather in different cities
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Setup](#setup)
-* [Features](#features)
 * [Status](#status)
-* [Inspiration](#inspiration)
-* [Contact](#contact)
 
 ## General info
 Fast and easy to use weather website to look up the weather in your favorite cities!
