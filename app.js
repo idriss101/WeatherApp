@@ -31,7 +31,7 @@ function getLocation() {
     console.log(position);
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${APIKEY}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=${APIKEY}`
       )
       .then((res) => {
         currentContent.innerHTML = `<h2>${res.data.name}</h2>
@@ -82,7 +82,7 @@ search.addEventListener("submit", (e) => {
 
   axios
     .get(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKEY}`
     )
     .then((res) => {
       currentContent.innerHTML = `<h2>${res.data.name}</h2>
